@@ -9,13 +9,23 @@ body {
 }
 
 .header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 1920px;
     height: 111px;
     padding: 30px 60px 40px 60px;
-    background: linear-gradient(90deg, #000000 0%, #000000 51%, #000000 100%);
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.25) 50%,
+        rgba(0, 0, 0, 0.0) 100%
+    );
 }
 
 .header .header-logo {
@@ -78,7 +88,7 @@ body {
     border: none;
     border-radius: 999px;
     padding: 0 15px 0 45px;
-    background-color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.3);
     gap: 4px;
 }
 
@@ -98,6 +108,12 @@ body {
 .search-btn i {
     color: #000;
     font-size: 16px;
+    color: #FFFFFF;
+}
+
+#search-input::placeholder {
+    color: #FFFFFF;
+    font-size: 12px;
 }
 
 .auth-buttons {
@@ -138,3 +154,166 @@ body {
 .login-btn a {
     color: #070C1C;
 }
+
+.hero-content {
+    position: relative;
+    width: 100%;
+    height: 760px;
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+}
+
+.hero-content.light-background .banner-info {
+    color: #070C1C;
+}
+
+.hero-content.light-background .banner-info,
+.hero-content.light-background .banner-info h1,
+.hero-content.light-background .banner-info .badges,
+.hero-content.light-background .banner-synopsis {
+    color: #070C1C;
+}
+
+.hero-content.light-background .sessions-btn {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.hero-content.light-background .sessions-btn:hover {
+    background: rgba(0, 0, 0, 0.15);
+    color: #070C1C;
+}
+
+.banner-info {
+    max-width: 580px;
+    min-height: 256px;
+    position: absolute;
+    top: 325px;
+    left: 67px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.banner-info p {
+    max-width: 196px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #EC3013;
+    display: flex;
+    align-items: center;
+}
+
+.banner-info h1 {
+    width: 580px;
+    height: 44px;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.banner-badges {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badges {
+    width: auto;
+    height: 26px;
+    padding: 6px 12px;
+    text-align: center;
+    background: #FFFFFF1A;
+    border-radius: 999px;
+    color: #FFFFFF;
+}
+
+#age-rating {
+    background-color: #EC30131A;
+    color: #EC3013;
+}
+
+#runtime {
+    background: #FFFFFF1A;
+}
+
+.banner-synopsis {
+    color: #FFFFFF;
+    max-width: 600px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-buttons .buttons {
+    border: none;
+    border-radius: 999px;
+    padding: 13px 25px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.buy-tickets-btn {
+    background-color: #EC3013;
+    color: #FFFFFF;
+}
+
+.sessions-btn {
+    width: 128px;
+    padding: 13px 22px;
+    background: #FFFFFF1A;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.sessions-btn:hover {
+    background: #FFFFFF80;
+}
+
+.hero-indicators {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 54px;
+    gap: 20px;
+    position: absolute;
+    top: 664px;
+    left: 67px;
+}
+
+.indicator {
+    width: 400px;
+    height: 3px;
+    background: #FFFFFF;
+    border-radius: 999px;
+}
+
+.indicator.active {
+    background: #EC3013;
+}
+
+.arrow {
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    border: none;
+    background: #070C1C33;
+    color: #FFFFFF;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.arrow:hover {
+    background: #070C1C75;
+}
+
