@@ -20,7 +20,7 @@ export async function getFeaturedMovies() {
 
                 <div class="banner-badges">
                     <span id="age-rating" class="badges">${movie.ageRating.code}</span>
-                    <span id="runtime" class="badges">${movie.runtimeMinutes} Min</span>
+                    <span id="runtime" class="badges"><i class="fa-regular fa-clock"></i> ${movie.runtimeMinutes} Min</span>
                     ${movie.formats.map(format => `
                         <span id="format-name" class="badges">${format.name}</span>
                     `).join('')}
@@ -78,4 +78,13 @@ export async function getFeaturedMovies() {
 
 export function setupHero() {
     getFeaturedMovies();
+    setInterval(() => {
+        currentMovie++;
+
+        if (currentMovie >= movies.length) {
+            currentMovie = 0;
+        }
+
+        getFeaturedMovies();
+    }, 5000);
 }

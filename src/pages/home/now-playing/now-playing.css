@@ -1,0 +1,132 @@
+.now-playing {
+    width: 100%;
+    max-height: 502px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 70px;
+    gap: 24px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.card-header a {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #EC3013
+}
+
+.movies-container {
+    display: flex;
+    max-width: 100%;
+    gap: 17px;
+}
+
+.card-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.movie-card {
+    display: flex;
+    width: 260px;
+    height: 452px;
+    border-radius: 20px;
+    padding: 12px;
+    gap: 10px;
+    background: #1E2031;
+    box-shadow: 0px 1px 4px 0px #00000033;
+    transition: width 0.9s ease;
+}
+
+.movie-card:hover {
+    width: 520px;
+}
+
+.movie-card img {
+    width: 236px;
+    height: 300px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+.movie-card:hover img {
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+
+.movie-card h3 {
+    display: flex;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.movie-card .movie-genre {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    color: #A9A9A9;
+}
+
+.movie-card span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 21px;
+    background: #EC30131A;
+    padding: 4px 7px;
+    border-radius: 999px;
+    color: #EC3013;
+    font-size: 12px;
+    font-weight: 600px;
+}
+
+.movie-synopsis {
+    display: none;
+}
+
+.movie-card:hover .movie-synopsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+     overflow: hidden;
+}
+
+.purchase-frame {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.purchase-frame p {
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.purchase-frame .buy-ticket-button {
+    width: 119px;
+    height: 35px;
+    border: none;
+    border-radius: 999px;
+    background: #EC3013;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #FFFFFF;
+    cursor: pointer;
+}

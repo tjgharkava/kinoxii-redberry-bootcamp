@@ -18,6 +18,10 @@
     color: #070C1C;
 }
 
+.hero-content.light-background .banner-info .badges {
+    background: #ffffffd2;
+}
+
 .hero-content.light-background .sessions-btn {
     background: rgba(0, 0, 0, 0.25);
 }
@@ -69,6 +73,8 @@
     background: #FFFFFF1A;
     border-radius: 999px;
     color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600px;
 }
 
 #age-rating {
@@ -102,6 +108,7 @@
     align-items: center;
     gap: 4px;
     font-size: 14px;
+    font-weight: 800;
     cursor: pointer;
 }
 
@@ -111,7 +118,6 @@
 }
 
 .sessions-btn {
-    width: 128px;
     padding: 13px 22px;
     background: #FFFFFF1A;
     color: #FFFFFF;
