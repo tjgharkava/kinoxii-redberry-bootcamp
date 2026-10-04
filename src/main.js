@@ -1,14 +1,10 @@
 import {
     renderHomePage,
-    setupSearch,
-    setupHero
-} from './pages/home.js';
-
-import './pages/home.css';
+    setupHomePage
+} from './pages/home/home.js';
 
 const app = document.querySelector('#app');
 
 app.innerHTML = renderHomePage();
 
-setupSearch();
-setupHero();
+setupHomePage();
