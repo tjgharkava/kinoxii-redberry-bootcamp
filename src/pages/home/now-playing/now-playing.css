@@ -30,6 +30,19 @@
     display: flex;
     max-width: 100%;
     gap: 17px;
+    position: relative;
+}
+
+.movies-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 348.34765625px;
+    height: 569.49951171875px;
+    background: linear-gradient(to right, transparent, #070C1C);
+    z-index: 10;
+    pointer-events: none;
 }
 
 .card-main {
@@ -103,7 +116,9 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
-     overflow: hidden;
+    overflow: hidden;
+    color: #A9A9A9;
+    font-size: 12px;
 }
 
 .purchase-frame {

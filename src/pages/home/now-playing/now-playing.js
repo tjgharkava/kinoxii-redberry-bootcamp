@@ -32,8 +32,10 @@ export async function setupNowPlaying() {
                         <p>From ₾ ${movie.fromPrice}</p>
                         <button class="buy-ticket-button">Buy Ticket</button>
                     </div>
-                </div>    
+                </div>
+                 
             </div>
+             
         `;
     });
 
