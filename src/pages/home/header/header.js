@@ -66,7 +66,7 @@ export function renderHeader() {
             </div>
         </header>
 
-        <main><section id="hero"></section></main>
+        
     `
 }
 
@@ -81,7 +81,6 @@ export async function searchMovies(query) {
 }
 
 export function setupSearch() {
-    console.log('SETUP SEARCH START');
 
     const searchOpen = document.querySelector('#search-open');
     const searchInput = document.querySelector('#search-input');
@@ -96,10 +95,8 @@ export function setupSearch() {
     const resultsCount = document.querySelector('#results-count');
     const noResultsQuery = document.querySelector('#no-results-query');
 
-    console.log('searchOpen:', searchOpen);
-    console.log('searchInput:', searchInput);
-    console.log('searchModal:', searchModal);
-    console.log('searchBox:', searchBox);
+    const browseSessions = document.querySelectorAll('.browse-btn');
+
 
     let debounceTimer;
 
@@ -111,7 +108,6 @@ export function setupSearch() {
     }
 
     function openModal() {
-    console.log('MODAL OPEN');
 
     searchBox.classList.add('active');
     searchModal.classList.add('active');
@@ -126,11 +122,6 @@ export function setupSearch() {
         resetSearchStates();
     }
 
-    searchBox.addEventListener('click', (event) => {
-        console.log('SEARCH BOX CLICKED');
-        console.log('TARGET:', event.target);
-    });
-
     document.addEventListener('click', (event) => {
         if (
             event.target.closest('#search-open') ||
@@ -140,6 +131,12 @@ export function setupSearch() {
             openModal();
         }
     });
+
+    browseSessions.forEach(button => {
+        button.addEventListener('click', () => {
+            window.location.hash = 'sessions';
+        })
+    })
 
     searchInput.addEventListener('input', () => {
         const query = searchInput.value.trim();

@@ -1,11 +1,22 @@
-import {
-    renderHomePage,
-    setupHomePage
-} from './pages/home/home.js';
-// import './pages/home/now-playing/now-playing.js';
+import { renderHomePage, setupHomePage } from './pages/home/home.js';
+import { renderSessionsPage, setupSessionsPage } from './pages/sessions/sessions.js';
 
 const app = document.querySelector('#app');
 
-app.innerHTML = renderHomePage();
+function renderPage() {
+    const hash = window.location.hash;
 
-setupHomePage();
+    if(hash === '#sessions') {
+        app.innerHTML = renderSessionsPage();
+        setupSessionsPage();
+        return;
+    }
+
+    app.innerHTML = renderHomePage();
+    setupHomePage();
+}
+
+renderPage();
+
+window.addEventListener('hashchange', renderPage);
+

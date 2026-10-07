@@ -7,6 +7,10 @@ import { renderFooter } from './footer/footer.js';
 export function renderHomePage() {
     return `
         ${renderHeader()}
+
+        <main>
+            <section id="hero"></section>
+        </main>
     `
 }
 

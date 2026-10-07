@@ -1,0 +1,109 @@
+.sessions-page-main {
+    padding: 140px 70px 80px;
+}
+
+.sessions-page {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.page-header h1{
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.page-header p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #A9A9A9;
+    line-height: 130%;
+}
+
+.sessions-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 320px;
+    height: 1001px;
+    background: #1E2031;
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.sessions-filters {
+    display: flex;
+    flex-direction: column;
+    width: 272px;
+    height: 876px;
+    gap: 24px;
+}
+
+.sessions-filters h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-group p {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 6%;
+    color: #A9A9A9;
+}
+
+.active-filters {
+    margin-top: auto;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    color: #A9A9A9;
+}
+
+#venue-options,
+#format-options,
+#language-options,
+#time-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-group label {
+    display: flex;
+    gap: 10px;
+}
+
+.venue-name,
+.format-name,
+.language-name,
+.time-band-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.venue-city {
+    font-size: 12px;
+    font-weight: 400;
+    color: #A9A9A9;
+    line-height: 130%;
+}
+
+.sessions-results {
+    min-width: 0;
+}
