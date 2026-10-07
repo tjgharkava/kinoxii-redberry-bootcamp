@@ -6,12 +6,11 @@ import { renderFooter } from './footer/footer.js';
 
 export function renderHomePage() {
     return `
-        ${renderHeader()},
+        ${renderHeader()}
     `
 }
 
 export async function setupHomePage() {
-    setupSearch();
     setupHero();
 
     await setupNowPlaying();
@@ -26,4 +25,6 @@ export async function setupHomePage() {
         <div class="section-divider"></div>
         ${renderFooter()}
     `;
+
+    setupSearch();
 }
