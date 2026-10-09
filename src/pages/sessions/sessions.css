@@ -1,11 +1,18 @@
+#search-input {
+    background-color: #FFFFFF1A;
+}
+
 .sessions-page-main {
-    padding: 140px 70px 80px;
+    display: flex;
 }
 
 .sessions-page {
     display: flex;
     flex-direction: column;
     gap: 36px;
+    position: absolute;
+    top: 117.5px;
+    left: 51px;
 }
 
 .page-header {
@@ -41,6 +48,7 @@
 .sessions-filters {
     display: flex;
     flex-direction: column;
+    
     width: 272px;
     height: 876px;
     gap: 24px;
@@ -104,6 +112,341 @@
     line-height: 130%;
 }
 
+#date-options {
+    display: flex;
+    gap: 6px;
+    overflow: hidden;
+}
+
+.date-card {
+    width: 37px;
+    height: 54px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 8px;
+    background: #2A2C3D;
+    padding: 10px 6px 10px 8px;
+    gap: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.date-card:hover {
+    border-color: #EC3013;
+}
+
+.date-card.active {
+    background-color: #EC3013;
+    color: #FFFFFF;
+}
+
+.date-card span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
 .sessions-results {
+    position: absolute;
+    top: 200.5px;
+    left: 422px;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 1255px;
+    height: 1121px;
+
+    gap: 24px;
+}
+
+.sessions-result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.sort-container {
+    width: 256px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sort-container label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    color: #A9A9A9;
+}
+
+#sessions-sort {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding-right: 14px;
+    padding-left: 16px;
+    background: #070C1C;
+    color: #FFFFFF;
+    border: none;
+}
+
+#sessions-sort option {
+    background: #1E2031;
+    color: #FFFFFF;
+}
+
+#sessions-list {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
     min-width: 0;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    gap: 56px;
+    padding: 12px;
+
+    scrollbar-width: thin;
+    scrollbar-color: #45485B #1E2031;
+}
+
+#sessions-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sessions-list::-webkit-scrollbar-track {
+    background: #1E2031;
+    border-radius: 10px;
+}
+
+#sessions-list::-webkit-scrollbar-thumb {
+    background: #45485B;
+    border-radius: 10px;
+    border: 1px solid #1E2031;
+}
+
+.session-movie {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.sessions-movie-poster {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.sessions-movie-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sessions-movie-poster img{
+    width: 56px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.sessions-movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.sessions-movie-info h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.sessions-movie-info span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    color: #EC3013;
+    background: #EC30131A;
+    border-radius: 999px;
+    width: 38px;
+    height: 21px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sessions-movie-duration p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    color: #A9A9A9;
+}
+
+.sessions-times {
+    display: flex;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.session-time {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 252px;
+    height: 104px;
+    background: #1E2031;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    padding: 15px;
+    gap: 12px;
+}
+
+.session-time.unavailable {
+    background: #1E2031;
+    opacity: 40%;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.time-and-format {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-and-format h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.time-and-format span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 23px;
+    padding: 5px 10px;
+    background: #2A2C3D;
+    border-radius: 999px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.subtitles-and-hall {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    
+}
+
+.subtitles-and-hall p {
+    font-size: 12px;
+}
+
+.subtitles-and-hall #subtitles-name {
+    font-weight: 400;
+    line-height: 130%;
+    color: #A9A9A9;
+}
+
+.subtitles-and-hall #venue-name {
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.tickets-and-price {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 10px;
+}
+
+.tickets-and-price p {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.tickets-and-price h3 {
+    font-size: 14px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.tickets-low {
+    color: #EC3013;
+}
+
+.tickets-available {
+    color: #4ADE80;
+}
+
+.sessions-pagination {
+    flex-shrink: 0;
+    height: 40px;
+    margin-top: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.sessions-pagination button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 999px;
+    background: #1E2031;
+    color: #A9A9A9;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Poppins;
+    line-height: 22px;
+    cursor: pointer;
+}
+
+.sessions-pagination .pagination-number {
+    background: transparent;
+    border: none;
+    color: #A9A9A9;
+}
+
+.sessions-pagination .pagination-number.active {
+    color: #FFFFFF;
+    background: #EC3013;
+}
+
+.sessions-pagination button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.footer {
+    position: absolute;
+    top: 1458px;
+    
 }
