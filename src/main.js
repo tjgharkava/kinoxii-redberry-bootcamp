@@ -1,22 +1,51 @@
+
 import { renderHomePage, setupHomePage } from './pages/home/home.js';
 import { renderSessionsPage, setupSessionsPage } from './pages/sessions/sessions.js';
+import {
+    renderMovieDetailsPage,
+    setupMovieDetailsPage
+} from './pages/movie-details/movie-details.js';
 
 const app = document.querySelector('#app');
 
-function renderPage() {
+app.addEventListener('click', event => {
+    const movieCard = event.target.closest('.movie-card');
+
+    if (!movieCard) return;
+
+    const slug = movieCard.dataset.slug;
+
+    if (slug) {
+        window.location.hash = `#movie/${slug}`;
+    }
+});
+
+async function renderPage() {
     const hash = window.location.hash;
 
-    if(hash === '#sessions') {
+    if (hash.startsWith('#movie/')) {
+        const slug = hash.slice('#movie/'.length);
+
+        if (!slug) {
+            window.location.hash = '';
+            return;
+        }
+
+        app.innerHTML = renderMovieDetailsPage();
+        await setupMovieDetailsPage(slug);
+        return;
+    }
+
+    if (hash === '#sessions') {
         app.innerHTML = renderSessionsPage();
         setupSessionsPage();
         return;
     }
 
     app.innerHTML = renderHomePage();
-    setupHomePage();
+    await setupHomePage();
 }
 
 renderPage();
 
 window.addEventListener('hashchange', renderPage);
-

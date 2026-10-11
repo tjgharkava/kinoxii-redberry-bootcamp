@@ -4,15 +4,17 @@
 
 .sessions-page-main {
     display: flex;
+    align-items: flex-start;
+    gap: 51px;
+    padding: 117px 51px 40px 51px;   /* ზედა იყო 40px */
+    box-sizing: border-box;
 }
 
 .sessions-page {
     display: flex;
     flex-direction: column;
     gap: 36px;
-    position: absolute;
-    top: 117.5px;
-    left: 51px;
+    flex-shrink: 0;
 }
 
 .page-header {
@@ -150,17 +152,13 @@
 }
 
 .sessions-results {
-    position: absolute;
-    top: 200.5px;
-    left: 422px;
-
     display: flex;
     flex-direction: column;
-
-    width: 1255px;
+    flex: 1;
+    min-width: 0;
     height: 1121px;
-
     gap: 24px;
+    margin-top: 83px;
 }
 
 .sessions-result-header {
@@ -443,10 +441,4 @@
 .sessions-pagination button.disabled {
     opacity: 0.4;
     cursor: not-allowed;
-}
-
-.footer {
-    position: absolute;
-    top: 1458px;
-    
 }

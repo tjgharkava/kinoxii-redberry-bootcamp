@@ -1,4 +1,7 @@
 .footer {
+    position: relative;
+    clear: both;
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,6 +9,9 @@
     height: 98px;
     padding: 27px 34px 34px 34px;
     gap: 20px;
+
+    flex-shrink: 0;
+    margin-top: auto;        /* pushes footer to the bottom on short pages */
 }
 
 .footer-logo {

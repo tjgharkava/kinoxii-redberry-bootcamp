@@ -5,9 +5,9 @@ export async function setupNowPlaying() {
     const response = await fetch('https://api.kinoxii.redberryinternship.ge/api/movies/now-playing?limit=6');
     const data = await response.json();
     const movies = data.data;
-    const app = document.querySelector('#app');
+    const slot  = document.querySelector('#now-playing');
 
-    app.innerHTML += `
+    slot.innerHTML = `
         <section class="now-playing">
             <div class="card-header">
                 <h1>NOW PLAYING</h1>
@@ -18,10 +18,10 @@ export async function setupNowPlaying() {
         </section>
     `
 
-    const moviesContainer = document.querySelector('.movies-container');
+    const moviesContainer = slot.querySelector('.movies-container');
     movies.forEach(movie => {
         moviesContainer.innerHTML += `
-            <div class="movie-card">
+            <div class="movie-card" data-slug="${movie.slug}">
                 <div class="card-main">
                     <img src="${movie.posterUrl}" alt="${movie.title}">
                     <h3>${movie.title}</h3>
@@ -35,8 +35,18 @@ export async function setupNowPlaying() {
                 </div>
                  
             </div>
-             
         `;
     });
+
+    moviesContainer.addEventListener('click', event => {
+        const movieCard = event.target.closest('.movie-card');
+
+        if (!movieCard) return;
+
+        const slug = movieCard.dataset.slug;
+
+        window.location.hash = `#movie/${slug}`;
+    });
+
 
 }

@@ -1,0 +1,411 @@
+.movie-details-page {
+    position: relative;
+    top: 0.31px;
+    width: 100%;
+    min-height: 1135px;
+    background: #070C1C;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.movie-details-hero {
+    position: relative;
+    width: 100%;
+    height: 567px;
+    flex-shrink: 0;
+}
+
+.movie-details-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 567px;
+    background-size: cover;
+    background-position: center 25%;
+    background-repeat: no-repeat;
+}
+
+.movie-details-content {
+    position: relative;
+    z-index: 1;
+    top: 152px;
+    left: 60px;
+    max-width: 903px;
+    max-height: 374px;
+}
+
+.movie-details-info {
+    display: flex;
+    align-items: flex-end;
+    gap: 36px;
+}
+
+.movie-details-poster {
+    display: flex;
+    width: 289px;
+    height: 374px;
+    border-radius: 14px;
+    gap: 8px;
+}
+
+.movie-details-text {
+    display: flex;
+    flex-direction: column;
+    padding: 9px 0px;
+    gap: 15px;
+}
+
+.movie-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 105px;
+    height: 25px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #EC30131A;
+    font-size: 12px;
+    font-weight: 600;
+    color: #EC3013;
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movie-info h1 {
+    font-size: 40px;
+    font-weight: 800;
+    color: #FFFFFF;
+}
+
+.movie-synopsis {
+    display: block;
+    visibility: visible;
+    max-height: 560px;
+    max-height: 36px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 130%;
+}
+
+.movie-frame {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.movie-frame span {
+    min-width: 0px;
+    max-width: 100%;
+    min-height: 25px;
+    background: #FFFFFF1A;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    gap: 4px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.movie-rating-code {
+    color:#EC3013;
+    background: #EC30131A;
+}
+
+.movie-bottom-layout {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+    padding: 0px 51px;
+}
+
+.movie-sessions-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    max-width: 1175px;
+    padding-bottom: 26px;
+    gap: 27px;
+}
+
+.movie-sessions-section h2,
+.movie-additional-details h2 {
+    margin: 0 0 24px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.movie-sessions-container {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.movie-dates {
+    display: flex;
+    gap: 7px;
+}
+
+.movie-date-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 80px;
+    height: 80px;
+    padding: 9px 10px;
+    border-radius: 16px;
+    border: none;
+    background: #1E2031;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background 0.2s ease,;
+    font-family: Archivo, sans-serif;
+}
+
+.movie-date-button span {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.movie-date-button strong {
+    font-size: 20px;
+}
+
+.movie-date-button.active {
+    background: #EC3013;
+}
+
+.session-venue {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+#movie-session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.session-venue h3 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.session-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}
+
+.session-button {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    min-height: 81px;
+    max-height: none;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #070C1C;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Archivo, sans-serif;
+    box-sizing: border-box;
+    transition: background 0.2s ease;
+}
+
+.session-button:hover:not(:disabled) {
+    background: #12182A;
+}
+
+.session-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.one-session {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 300px;
+    min-width: 0;
+    max-width: 277px;
+    padding: 15px;
+    border: 1px solid white;
+    border-radius: 18px;
+    background: #1E2031;
+    box-sizing: border-box;
+}
+
+.hall-name {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ticket-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex;
+    flex: 1;
+    min-width: 0;
+    max-width: 124px;
+    padding: 0 15px;
+    gap: 8px;
+    border-right: 1px dashed #FFFFFF;
+    box-sizing: border-box;
+}
+
+.ticket-left h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.language-and-format {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 12px;
+    font-family: Archivo, sans-serif;
+    transform: none;
+}
+
+.language-and-format .language {
+    font-weight: 400;
+    line-height: 130%;
+}
+
+.language-and-format .format {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-width: 51px;
+    min-height: 21px;
+    height: auto;
+    border-radius: 999px;
+    background: #1E2031;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #E3E3E3B2;
+    box-sizing: border-box;
+}
+
+.ticket-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    max-width: 83px;
+
+}
+
+.ticket-right strong {
+    color: #EC3013;
+    font-size: 16px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.ticket-right span {
+    color: #B7B9C7;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.movie-additional-details {
+    width: 100%;
+    max-width: 441px;
+    margin: 0 auto;
+    padding: 0 26px;
+    color: #FFFFFF;
+}
+
+.movie-additional-details h2 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#movie-extra-details {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+.extra-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.extra-detail-label {
+    color: #A9A9A9;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.extra-detail-value {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+.rating-note {
+    display: flex;
+    flex-direction: column;
+    max-width: 389px;
+    min-height: 70px;
+    padding: 9px 13px;
+    border-radius: 12px;
+    background: #E27E041A;
+    color: #E27E04;
+    gap: 7px;
+}
+
+.rating-note span
+.rating-code-text span {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.rating-code-text {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+}
+
+.rating-code-text p {
+    font-size: 12px;
+    font-weight: 400;
+}

@@ -10,6 +10,7 @@ export async function getFeaturedMovies() {
     const movie = movies[currentMovie];
     const hero = document.querySelector('#hero');
 
+    if(!hero) return;
 
     hero.innerHTML = `
         <div class="hero-content ${currentMovie === 2 ? 'light-background' : ''}" 
@@ -78,7 +79,12 @@ export async function getFeaturedMovies() {
 
 export function setupHero() {
     getFeaturedMovies();
+
     setInterval(() => {
+        const hero = document.querySelector('#hero');
+
+        if (!hero) return;
+
         currentMovie++;
 
         if (currentMovie >= movies.length) {

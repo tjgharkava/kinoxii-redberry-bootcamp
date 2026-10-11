@@ -10,25 +10,19 @@ export function renderHomePage() {
 
         <main>
             <section id="hero"></section>
+            <section id="now-playing"></section>
+            <div class="section-divider"></div>
+            <section id="coming-soon"></section>
+            <div class="section-divider"></div>
         </main>
-    `
+
+        ${renderFooter()}
+    `;
 }
 
 export async function setupHomePage() {
     setupHero();
-
     await setupNowPlaying();
-
-    app.innerHTML += `
-        <div class="section-divider"></div>
-    `;
-
     await setupComingSoon();
-
-    app.innerHTML += `
-        <div class="section-divider"></div>
-        ${renderFooter()}
-    `;
-
     setupSearch();
 }

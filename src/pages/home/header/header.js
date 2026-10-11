@@ -5,7 +5,7 @@ export function renderHeader() {
         <header class="header">
         
             <div class="header-logo">
-                <h2>KINO <span>XII</span></h2>
+                <h2><a href="#" class="home-logo">KINO <span>XII</span></a></h2>
                 <nav class="main-nav">
                     <a href="#sessions" class="active">SESSIONS</a>
                 </nav>
@@ -168,27 +168,42 @@ export function setupSearch() {
 
             resultsCount.textContent = `${movies.length} results`;
 
+            
             modalSearchResults.innerHTML = movies.map(movie => `
                 <div class="search-result-item">
-
-                    <img 
-                        src="${movie.posterUrl}" 
+                    <img
+                        src="${movie.posterUrl}"
                         alt="${movie.title}"
                     >
 
                     <div class="search-result-info">
                         <h3>${movie.title}</h3>
                         <p>
-                            Film · ${movie.ageRating?.code} · ${movie.runtimeMinutes} min
+                            Film · ${movie.ageRating?.code ?? ''} · ${movie.runtimeMinutes} min
                         </p>
                     </div>
 
                     <div class="search-result-action">
                         <span class="price">From ₾${movie.fromPrice}</span>
                     </div>
-
                 </div>
             `).join('');
+
+            const resultItems = modalSearchResults.querySelectorAll('.search-result-item');
+
+            resultItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    const slug = movies[index]?.slug;
+
+                    if (typeof slug !== 'string' || !slug.trim()) {
+                        console.error('Movie slug is missing:', movies[index]);
+                        return;
+                    }
+
+                    window.location.hash = `#movie/${slug.trim()}`;
+                });
+            });
+
         }, 300);
     });
 
