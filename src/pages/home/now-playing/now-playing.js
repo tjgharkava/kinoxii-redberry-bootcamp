@@ -11,7 +11,7 @@ export async function setupNowPlaying() {
         <section class="now-playing">
             <div class="card-header">
                 <h1>NOW PLAYING</h1>
-                <a href="#">See All</a>
+                <a href="#sessions" id="see-all">See All</a>
             </div>
 
             <div class="movies-container"></div>
@@ -48,5 +48,5 @@ export async function setupNowPlaying() {
         window.location.hash = `#movie/${slug}`;
     });
 
-
+    
 }

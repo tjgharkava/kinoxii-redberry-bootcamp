@@ -17,7 +17,7 @@ export async function setupComingSoon() {
         <section class="coming-soon">
             <div class="coming-soon-header">
                 <h1>COMING SOON...</h1>
-                <a href="#">See All</a>
+                <a href="#sessions">See All</a>
             </div>
             
 

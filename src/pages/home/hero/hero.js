@@ -48,6 +48,7 @@ export async function getFeaturedMovies() {
                     `).join('')}
                 <button class="arrow-left arrow"><i class="fa-solid fa-chevron-left"></i></button>
                 <button class="arrow-right arrow"><i class="fa-solid fa-chevron-right"></i></button>
+                
             </div>
         </div>
     `;
@@ -72,6 +73,10 @@ export async function getFeaturedMovies() {
         }
 
         getFeaturedMovies();
+    });
+
+    document.querySelector('.sessions-btn').addEventListener('click', () => {
+        window.location.hash = '#sessions';
     });
 }
 
