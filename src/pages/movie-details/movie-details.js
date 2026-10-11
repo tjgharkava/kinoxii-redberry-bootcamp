@@ -3,6 +3,7 @@ import './movie-details.css';
 import { renderHeader, setupSearch } from '../home/header/header.js';
 import { renderFooter } from '../home/footer/footer.js';
 import { addRecentlyViewed } from '../home/recently-viewed/recently-viewed.js';
+import { renderBookingModal, setupBookingModal, openBooking } from '../booking/booking.js';
 
 const API_URL = 'https://api.kinoxii.redberryinternship.ge/api';
 
@@ -69,12 +70,14 @@ export function renderMovieDetailsPage() {
         </main>
 
         ${renderFooter()}
+        ${renderBookingModal()}
     `;
 }
 
 
 export async function setupMovieDetailsPage(slug) {
     setupSearch();
+    setupBookingModal();
 
     const container = document.querySelector('#movie-details-content');
 
@@ -113,7 +116,7 @@ export async function setupMovieDetailsPage(slug) {
             </div>
         `;
 
-        renderMovieDates(movie.availableDates ?? [], slug);
+        renderMovieDates(movie.availableDates ?? [], slug, movie.title);
 
         const extraDetails = document.querySelector('#movie-extra-details');
 
@@ -178,7 +181,7 @@ export async function setupMovieDetailsPage(slug) {
     }
 }
 
-function renderMovieDates(availableDates, slug) {
+function renderMovieDates(availableDates, slug, movieTitle) {
     const datesContainer = document.querySelector('#movie-dates');
     const sessionsContainer = document.querySelector('#movie-session-list');
 
@@ -227,7 +230,7 @@ function renderMovieDates(availableDates, slug) {
 
         try {
             const venues = await fetchMovieSessions(slug, button.dataset.date);
-            renderSessions(venues, sessionsContainer);
+            renderSessions(venues, sessionsContainer, movieTitle);
         } catch (error) {
             console.error('Sessions error:', error);
             sessionsContainer.innerHTML = '<p>Could not load sessions. Please try again.</p>';
@@ -245,7 +248,7 @@ function renderMovieDates(availableDates, slug) {
     }
 }
 
-function renderSessions(venues, container) {
+function renderSessions(venues, container, movieTitle) {
     if (!venues || venues.length === 0) {
         container.innerHTML = '<p>No sessions available for this date.</p>';
         return;
@@ -285,4 +288,12 @@ function renderSessions(venues, container) {
             </div>
         </section>
     `).join('');
+    
+    const allSessions = venues.flatMap(group => group.sessions);
+
+    container.querySelectorAll('.session-button').forEach((button, index) => {
+        button.addEventListener('click', () => {
+            openBooking(allSessions[index], movieTitle);
+        });
+    });
 }
