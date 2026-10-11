@@ -19,7 +19,7 @@ Cinema booking web app built with Vanilla JavaScript and Vite.
 - Vanilla JavaScript (ES modules)
 - Vite
 - CSS (no frameworks)
-- REST API: https://api.kinoxii.redberryinternship.ge/api
+- REST API: https://api.kinoxii.redberryinternship.ge/docs#/
 
 ## Design
 
