@@ -5,6 +5,7 @@ import {
     renderMovieDetailsPage,
     setupMovieDetailsPage
 } from './pages/movie-details/movie-details.js';
+import { renderProfilePage, setupProfilePage } from './pages/profile/profile.js';
 
 const app = document.querySelector('#app');
 
@@ -41,6 +42,12 @@ async function renderPage() {
         setupSessionsPage();
         return;
     }
+
+    if (hash === '#profile') {
+    app.innerHTML = renderProfilePage();
+    await setupProfilePage();
+    return;
+}
 
     app.innerHTML = renderHomePage();
     await setupHomePage();

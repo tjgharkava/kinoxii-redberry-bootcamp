@@ -2,6 +2,7 @@
 import './movie-details.css';
 import { renderHeader, setupSearch } from '../home/header/header.js';
 import { renderFooter } from '../home/footer/footer.js';
+import { addRecentlyViewed } from '../home/recently-viewed/recently-viewed.js';
 
 const API_URL = 'https://api.kinoxii.redberryinternship.ge/api';
 
@@ -79,7 +80,9 @@ export async function setupMovieDetailsPage(slug) {
 
     try {
         const movie = await fetchMovie(slug);
-        console.log('MOVIE DETAILS: ', movie);
+        
+        addRecentlyViewed(movie);
+
         const banner = document.querySelector('.movie-details-banner');
 
         banner.style.backgroundImage = `url("${movie.backdropUrl}")`;

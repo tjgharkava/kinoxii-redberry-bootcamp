@@ -1,4 +1,89 @@
 import './header.css'
+import { renderRegisterModal, setupRegisterModal } from '../../register/register.js';
+import { isLoggedIn, getUser, logout } from '../../auth/auth.js';
+import { renderLoginModal, setupLoginModal } from '../../register/login.js'
+
+function getInitials(name) {
+    return name
+        .split(' ')
+        .filter(Boolean)
+        .map(part => part[0])
+        .join('')
+        .slice(0, 2)
+        .toUpperCase();
+}
+
+function renderAuthArea() {
+    if (!isLoggedIn()) {
+        return `
+            <div class="auth-buttons">
+                <button class="signup-btn" id="signup-open">Sign Up</button>
+                <button class="login-btn" id="login-open">Log In</button>
+            </div>
+        `;
+    }
+
+    const user = getUser();
+    const displayName = user.fullName || user.username;
+    const firstName = displayName.split(' ')[0];
+    const status = user.profileComplete ? 'complete' : 'incomplete';
+
+    const avatarMarkup = user.avatar
+        ? `<img src="${user.avatar}" alt="${displayName}">`
+        : getInitials(displayName);
+
+    return `
+        <div class="user-menu" id="user-menu">
+            <button class="user-menu-btn" id="user-menu-btn">
+                <span class="user-avatar">
+                    ${avatarMarkup}
+                    <i class="status-dot ${status}"></i>
+                </span>
+                <span class="user-name">${firstName}</span>
+                <i class="fa-solid fa-chevron-down user-chevron"></i>
+            </button>
+
+            <div class="user-dropdown" id="user-dropdown">
+                <div class="user-dropdown-head">
+                    <span class="user-avatar">
+                        ${avatarMarkup}
+                        <i class="status-dot ${status}"></i>
+                    </span>
+                    <div class="user-dropdown-info">
+                        <h4>${displayName}</h4>
+                        <p>${user.email}</p>
+                    </div>
+                </div>
+
+                ${user.profileComplete
+                    ? `
+                        <div class="profile-status complete">
+                            Profile Complete <i class="fa-solid fa-check"></i>
+                        </div>
+                    `
+                    : `
+                        <div class="profile-status incomplete">
+                            <strong>Profile incomplete</strong>
+                            <p>Please complete your profile to enable booking</p>
+                        </div>
+                    `}
+
+                <a href="#profile" class="user-dropdown-link">
+                    <i class="fa-regular fa-user"></i> My Profile
+                </a>
+                <a href="#tickets" class="user-dropdown-link">
+                    <i class="fa-solid fa-ticket"></i> My Tickets
+                </a>
+
+                <div class="user-dropdown-divider"></div>
+
+                <button type="button" id="logout-btn" class="user-dropdown-logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
+                </button>
+            </div>
+        </div>
+    `;
+}
 
 export function renderHeader() {
     return `
@@ -59,13 +144,10 @@ export function renderHeader() {
                         </div>
                     </div>
 
-                <div class="auth-buttons">
-                    <button class="signup-btn"><a href="#signup">Sign Up</a></button>
-                    <button class="login-btn"><a href="#login">Log In</a></button>
-                </div>
+                ${renderAuthArea()}
             </div>
         </header>
-
+        ${isLoggedIn() ? '' : renderRegisterModal() + renderLoginModal()}
         
     `
 }
@@ -212,4 +294,21 @@ export function setupSearch() {
             closeModal();
         }
     });
+
+    const userMenuBtn = document.querySelector('#user-menu-btn');
+    const userDropdown = document.querySelector('#user-dropdown');
+
+    if (userMenuBtn) {
+        userMenuBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            userDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', () => userDropdown.classList.remove('open'));
+
+        document.querySelector('#logout-btn').addEventListener('click', logout);
+    }
+
+    setupRegisterModal();
+    setupLoginModal();
 }
